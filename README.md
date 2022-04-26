@@ -15,17 +15,17 @@ Testaa. Tee pienin testattava kokonaisuus kerralla.
 Tein uuden kansion salt-tilalle hakemistoon /srv/salt/ nimeltä favorites ja sinne state-tiedoston nimeltä init.sls
 En keksinyt kuin vain kahdeksan ohjelmaa, joita itse voisin käyttää ja asentaa tuoreen asennuksen jälkeen.
 
-![Ohjelmat]()
+![Ohjelmat](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/ohjelmat.png)
 
 Ja tämän jälkeen otin tilan käyttöön komennolla:
 
 	$ sudo salt '*' state.apply favorites
 
-![Favorites state.apply]()
+![Favorites state.apply](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/favoritesapply.png)
 
 ## b) CSI Pasila. Tiedostoista saa aikajanan 'cd /etc/; sudo find -printf '%T+ %p\n'|sort|tail'. Anna esimerkki aikajanasta
 
-![Esimerkki aikajana]()
+![Esimerkki aikajana](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/findkomento.png)
 
 > Selitä jokainen kohta komennosta, jolla aikajana tehdään. Vinkki: '%T+' löytyy 'man find' kohdasta printf.
 
@@ -42,11 +42,11 @@ Tätä varten suljin ufw ohjelman kautta portin 80, eli apachen käyttämän htt
 
 	& sudo ufw deny 80/tcp
 
-Joka olikin näköjään valmiiksi jo suljettu aiemmin, joten suljin portin 666, jota aikoinaan käytettyyn DOOM:ia varten.
+Joka olikin näköjään valmiiksi jo suljettu aiemmin, joten suljin portin 666, jota aikoinaan on käytetty DOOM:ia varten.
 
-![ufw skipping]()
+![ufw skipping](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/ufwskipping.png)
 
-![doom port]()
+![doom port](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/doomport.png)
 
 
 ## Ota uusi aikajana ja etsi muutos sieltä
@@ -55,22 +55,22 @@ Muutoksen löysin komennolla:
 
 	& sudo cat /etc/ufw/user.rules
 	
-![catkomento]()
+![catkomento](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/catkomento.png)
 
-##Onko samalla hetkellä muutettu yhtä vai useampaa tiedostoa?
+## Onko samalla hetkellä muutettu yhtä vai useampaa tiedostoa?
 
-Find ohjelma näyttää, että on muutettu kahta tiedostoa.
+Find ohjelma näyttää, että on muutettu kahta tiedostoa, user.rules ja user6.rules.
 
-![findkomento]()
+![findkomento](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/findkomento.png)
 
 ## c) Tiedän mitä teit viime kesän^H^H^H komennolla. Säädä jotain ohjelmaa ja etsi sen muuttamat tiedostot aikajanasta. Tee sitten tästä oma Saltin tila.
 > Vinkki: tässä kohdassa pitää muuttaa jonkin ohjelman asetuksia, pelkkä ohjelman asennus pkg.installed on liian helppoa.
 
 Tätä tehtävää varten tein ufw:lle uuden Salt-hakemiston ja init-state tiedoston. Tiedostossa varmistan että ufw-sovellus on asennettu, sekä kopioin /srv/salt/ufw/ hakemistoon Debian-koneeni palomuurisäännöt.
 
-![ufwinit]()
+![ufwinit](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/ufwinit.png)
 
-![saantokopio]()
+![saantokopio](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/saantokopio.png)
 
 Poistin tämän jälkeen ufw:n komennolla
 	
@@ -82,9 +82,9 @@ Poistin tämän jälkeen ufw:n komennolla
 
 Tässä vaiheessa vanhat muutokset näkyvät asetuksissa.
 
-![firewallinstall]()
+![firewallinstall](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/firewallinstall.png)
 
-![firewallsettings]()
+![firewallsettings](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/firewallsettings.png)
 
 ## d) Asenna jokin toinen ohjelma asetuksineen.
 
@@ -92,11 +92,11 @@ Tässä vaiheessa vanhat muutokset näkyvät asetuksissa.
 
 Ja tätä tehtävää varten asensin chromiumin, sekä muutin asetuksia hakemistosta /etc/chromium käsin, muutin master_preferences tiedostossa kotisivuksi [https://terokarvinen.com](https://terokarvinen.com).
 
-![asetuksetkasin]()
+![asetuksetkasin](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/asetuksetkasin.png)
 
 Sen jälkeen tein uuden salt-hakemiston ja tilan hakemistoon /srv/salt/chromium, sekä kopioin Debian koneeni chromium asetukset hakemistosta /etc/chromium salt-hakemistoon.
 
-![chromiumtila]()
+![chromiumtila](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/chromiumtila.png)
 
 Jonka jälkeen poistin chromiumin Debianilta komennoilla:
 
@@ -107,8 +107,12 @@ Ja ajoin äsken luodun salt-tilan nimeltä chromium komennolla:
 
 	& sudo salt '*' state.apply chromium
 	
-![chromiumapply]()
+![chromiumapply](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/chromiumapply.png)
 	
 Jonka jälkeen voidaan huomata, että muutokset ovat toimineet, sekä loppujen lopuksi find komennolla voidaan nähdä, että molemmat muutokset ufw:hen ja chromiumiin ovat toimineet.
 
-![findkomento2]()
+![findkomento2](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/findkomento2.png)
+
+Testasin vielä Debianilla, että kotisivu on muuttunnut, ja Home nappia painamalla kotisivuhan oli muuttunut.
+
+![kotisivu](https://raw.githubusercontent.com/Jimitesti/tehtava4/main/Kuvat/kotisivu.png)
